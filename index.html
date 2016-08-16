@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+	<title></title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-app="angular-intro">
+<!-- {{5*5}}
+<br>
+{{"hello".toUpperCase();}}
+<br>
+{{var array = ['s','w','e','e','t','n','e','s','s'];}} -->
+
+<!-- <div ng-controller="PokemonController">
+    <pre>{{ pokemon | json }}</pre>
+	<p>{{ catchphrase | uppercase }}
+</div> -->
+
+<div ng-controller="PokemonController">
+
+  <h1>Trainer: {{trainer.name}}</h1>
+
+  <span>Enter your name:</span>
+  <input ng-model="trainer.name"/>
+
+  <br>
+
+  <span>Search:</span>
+  <input ng-model="search"/>
+
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Ndex</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Nemesis</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="poke in pokemon | orderBy:'Ndex' | filter : search">
+      <tr>
+        <td>{{poke.Ndex}}</td>
+        <td>{{poke.name}}</td>
+        <td>{{poke.type}}</td>
+        <td>{{poke.name | reverse}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+</body>
+</html>
